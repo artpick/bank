@@ -1,3 +1,5 @@
+![CI](https://github.com/artpick/bank/workflows/CI/badge.svg)
+
 # Description
 
 This is a simple SpringBoot Kotlin backend that simulate a banking account.
