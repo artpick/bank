@@ -1,12 +1,15 @@
 package com.julian.sabos.bank.customer
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import com.julian.sabos.bank.account.Account
+import javax.persistence.*
 
 @Entity
-data class Customer(@Id @GeneratedValue
-                    val id: Long = -1,
-                    val name: String,
-                    val firstName: String
+data class Customer(
+        val name: String? = null,
+        val firstName: String? = null,
+        @ManyToMany(mappedBy = "accountOwners")
+        val accounts: Set<Account> = HashSet(),
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        val id: Long = -1,
 )
