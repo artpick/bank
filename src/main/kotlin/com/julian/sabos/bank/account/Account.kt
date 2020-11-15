@@ -26,4 +26,8 @@ open class Account constructor(
         open val incomingOperations: List<FinancialTransaction>? = null,
         @OneToMany(mappedBy = "accountTo")
         open val outgoingOperations: List<FinancialTransaction>? = null) {
+
+    override fun toString(): String {
+        return "Account(IBAN=$IBAN, balance=$balance)"
+    }
 }
