@@ -1,12 +1,14 @@
 package com.julian.sabos.bank.account
 
 import com.julian.sabos.bank.customer.Customer
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.OneToMany
+import com.julian.sabos.bank.financialtransaction.FinancialTransaction
+import javax.persistence.*
 
 @Entity
-data class CheckingAccount(@Id val IBAN: String,
-                           val RIB: String,
-                           @OneToMany
-                           override val customer: Set<Customer>) : Account
+class CheckingAccount(
+        IBAN: String? = null,
+        balance: Long? = null,
+        accountOwners: Set<Customer>? = null,
+        incomingOperations: List<FinancialTransaction>? = null,
+        outgoingOperations: List<FinancialTransaction>? = null
+) : Account(IBAN, balance, accountOwners, incomingOperations, outgoingOperations)
