@@ -23,7 +23,7 @@ class CheckingAccountRepositoryTest(@Autowired private val entityManager: TestEn
         val checkingAccountsFound: Iterable<CheckingAccount> = this.checkingAccountRepo.findAll()
 
         // THEN
-        Assertions.assertThat(checkingAccountsFound).hasSize(1).anyMatch { currentCheckingAccount ->
+        Assertions.assertThat(checkingAccountsFound).hasSize(4).anyMatch { currentCheckingAccount ->
             currentCheckingAccount.IBAN == FAKE_IBAN
         }
     }

@@ -13,14 +13,14 @@ class CustomerRepositoryTest(@Autowired private val entityManager: TestEntityMan
     @Test
     fun `should create a dumb customer, no relations`() {
         // GIVEN
-        val customer = Customer("Sabos", "Julian")
+        val customer = Customer("Marple", "Jane")
 
         // WHEN
         entityManager.persist(customer)
         val customersFound: Iterable<Customer> = customerRepo.findAll()
 
         // THEN
-        Assertions.assertThat(customersFound).hasSize(1)
-                .anyMatch { currentCustomer -> currentCustomer.firstName == "Julian" && currentCustomer.name == "Sabos" }
+        Assertions.assertThat(customersFound).hasSize(4)
+                .anyMatch { currentCustomer -> currentCustomer.firstName == "Jane" && currentCustomer.lastName == "Marple" }
     }
 }
